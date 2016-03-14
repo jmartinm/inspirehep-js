@@ -1,0 +1,37 @@
+<div class="modal-header">
+  <button ng-click="vm.closeModal()" type="button" class="close" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+  <h4 class="modal-title" id="citeModalLabel">Cite Article</h4>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="col-md-12">
+      <textarea ng-model="vm.exportContent"></textarea>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+<div class="row">
+  <div class="col-md-6 text-left">
+    <button class="btn btn-default copy-clp" id="copy-single-record-clipboard{{record.id}}" data-toggle="tooltip" data-placement="bottom" data-clipboard-target="#singleRecord{{record.id}}" data-original-title="Copied!">
+      <i class="fa fa-clipboard pointer"></i> Copy to clipboard
+    </button>
+  </div>
+  <div class="col-md-6">
+    <div class="btn-group" uib-dropdown>
+    <button id="btn-append-to-single-button" type="button" class="btn btn-primary" uib-dropdown-toggle>
+      Inline Dropdown <span class="caret"></span>
+    </button>
+    {{exportFormat}}
+    <ul uib-dropdown-menu role="menu" aria-labelledby="btn-append-to-single-button">
+      <li role="menuitem"><a ng-click="vm.changeFormat('bibtex')" class="pointer bibtex" id="bibtex{{record.id}}" data-recid="{{record.id}}">BibTex</a>
+      </li>
+      <li role="menuitem"><a ng-click="vm.changeFormat('latex')" class="pointer latex_eu" id="latex_eu{{record.id}}" data-recid="{{record.id}}">LaTex(EU)</a>
+      </li>
+      <li role="menuitem"><a ng-click="vm.changeFormat('latexus')" class="pointer latex_us" id="latex_us{{record.id}}" data-recid="{{record.id}}">LaTex(US)</a>
+      </li>
+    </ul>
+  </div>
+  <a type="button" id="download{{record.id}}" class="btn btn-primary"><i class="fa fa-download"></i> Download</a>
+  </div>
+</div>
+</div>
